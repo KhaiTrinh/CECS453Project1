@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = txtLoginPassword.getText().toString();
                 if(MainActivity.database.CheckCredentials(username, password)) {
                     Intent welcome_page = new Intent(getApplicationContext(), WelcomeActivity.class);
+                    welcome_page.putExtra("Username", username);
                     startActivity(welcome_page);
                 } else {
                     Toast.makeText(getApplicationContext(), "Incorrect login credentials.", Toast.LENGTH_LONG).show();
