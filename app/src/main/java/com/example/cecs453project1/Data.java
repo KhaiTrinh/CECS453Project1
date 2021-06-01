@@ -26,6 +26,10 @@ public class Data {
     public Boolean CheckUsername(String username){
         Boolean  retval = false;
         // Write your code here
+        if(!username.equals("")){
+            retval = true;
+        }
+        
         if(hmCredentials.containsKey(username)){ // username exists already
             retval = true;
             return retval;
@@ -40,5 +44,30 @@ public class Data {
 
         return retval;
     }
+
+    public String validateInput(String user, String pass, String rPass, String email, String phone){
+
+    }
+
+    private String validateUser(String user){
+        if(user.equals("")){
+            sb.append("Username Taken Already,");
+            error = true;
+        }
+
+        if(CheckUsername(user)){ // true = username exists already, false = new username
+            sb.append("Username Taken Already,");
+            error = true;
+        }
+    }
+
+    private String validatePass(String pass){
+
+    }
+
+    private String validatePhone(String phone){
+
+    }
+
 
 }
