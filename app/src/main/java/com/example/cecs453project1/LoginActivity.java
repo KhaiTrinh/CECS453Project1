@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText txtLoginUsername, txtLoginPassword;
     private Button btnLogin, btnSignup;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,14 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                String username = txtLoginUsername.getText().toString();
+                String password = txtLoginPassword.getText().toString();
+                if(MainActivity.database.CheckCredentials(username, password)) {
+                    Intent welcome_page = new Intent(getApplicationContext(), WelcomeActivity.class);
+                    startActivity(welcome_page);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Incorrect login credentials.", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
