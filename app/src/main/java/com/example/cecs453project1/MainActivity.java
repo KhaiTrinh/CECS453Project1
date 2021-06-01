@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Database will store all user credentials
     public static Data database;
 
     @Override
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         database = new Data();
 
+        // Redirects to login page
         Intent login_page = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(login_page);
     }

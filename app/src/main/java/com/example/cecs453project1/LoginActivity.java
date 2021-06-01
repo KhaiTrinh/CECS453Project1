@@ -19,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // Stores all inputted data
         txtLoginUsername = findViewById(R.id.txtLoginUsername);
         txtLoginPassword = findViewById(R.id.txtLoginPassword);
         btnLogin = findViewById(R.id.btnLogin);
@@ -27,8 +28,11 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Casts all data into Strings
                 String username = txtLoginUsername.getText().toString();
                 String password = txtLoginPassword.getText().toString();
+
+                // If the login credentials exists in the database, redirects to welcome page
                 if(MainActivity.database.CheckCredentials(username, password)) {
                     Intent welcome_page = new Intent(getApplicationContext(), WelcomeActivity.class);
                     welcome_page.putExtra("Username", username);
@@ -39,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // When pressed redirects to the signup page
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

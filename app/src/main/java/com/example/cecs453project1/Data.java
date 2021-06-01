@@ -26,13 +26,7 @@ public class Data {
 
     // This method checks if username exists in the hashmap
     public Boolean CheckUsername(String username){
-        Boolean  retval = false;
-        
-        if(hmCredentials.containsKey(username)){ // username exists already
-            retval = true;
-            return retval;
-        }
-        return retval;
+        return hmCredentials.containsKey(username);
     }
 
     // This method checks a username and password combination is correct!
@@ -41,7 +35,9 @@ public class Data {
     }
 
     public String validateInput(String user, String pass, String rPass, String email, String phone){
+        // This string will be the error message
         StringBuilder sb = new StringBuilder();
+
         sb.append(validateUser(user));
         sb.append(validatePass(pass, rPass));
         sb.append(validateEmail(email));
@@ -51,10 +47,12 @@ public class Data {
     }
 
     private String validateUser(String user){
+        // Checks if the username field is empty
         if(user.equals("")){
             return "Username cannot be empty. ";
         }
 
+        // Checks if the username already exists in the database
         if(CheckUsername(user)){ // true = username exists already, false = new username
             return "Username already exist. ";
         }
@@ -63,10 +61,12 @@ public class Data {
     }
 
     private String validatePass(String pass, String rPass){
+        // Checks if the password field is empty
         if(pass.equals("")){
             return "Password cannot be emtpy. ";
         }
 
+        // Checks if the password matches the retyped password
         if(!pass.equals(rPass)){ // Password and Repassword are not the same
             return "Password and Re-Typed Password aren't the same. ";
         }
@@ -75,28 +75,30 @@ public class Data {
     }
 
     private String validateEmail(String email) {
+        // Commonly used email formats
         ArrayList<String> emailFormat = new ArrayList<>(Arrays.asList("@gmail.com", "@yahoo.com", "@student.csulb.edu", "@hotmail.com", "@aol.com"));
 
+        // Checks if email field is emtpy
         if(email.equals("")) {
             return "Email cannot be empty. ";
         }
 
+        // Checks if email format is valid
         int atIndex = email.indexOf("@");
-
         if(atIndex == -1) {
             return "Incorrect email format. ";
+        } else {
+            String emailService = email.substring(atIndex);
+            if(!emailFormat.contains(emailService)) {
+                return "Incorrect email format. ";
+            }
         }
-
-        String emailService = email.substring(atIndex);
-        if(!emailFormat.contains(emailService)) {
-            return "Incorrect email format. ";
-        }
-
 
         return "";
     }
 
     private String validatePhone(String phone){
+        // Checks if phone field is empty
         if(phone.length() == 0) {
             return "Phone cannot be empty. ";
         } else if(phone.length() != 10) { // phone has to be 10 in length
