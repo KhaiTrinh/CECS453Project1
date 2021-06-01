@@ -24,9 +24,12 @@ public class Data {
 
     // This method checks if username exists in the hashmap
     public Boolean CheckUsername(String username){
-        Boolean  retval = true;
+        Boolean  retval = false;
         // Write your code here
-
+        if(hmCredentials.containsKey(username)){ // username exists already
+            retval = true;
+            return retval;
+        }
         return retval;
     }
 
