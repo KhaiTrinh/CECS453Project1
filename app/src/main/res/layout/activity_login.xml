@@ -7,7 +7,6 @@
     android:padding="20dp"
     tools:context=".LoginActivity">
 
-
     <EditText
         android:id="@+id/txtLoginUsername"
         android:layout_width="match_parent"
@@ -49,4 +48,5 @@
         android:text="@string/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLoginPassword" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
