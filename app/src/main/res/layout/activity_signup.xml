@@ -4,6 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".SignupActivity">
+
+    <EditText
+        android:id="@+id/txtSignupUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="@string/txtUsername"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="85dp" />
+
+    <EditText
+        android:id="@+id/txtSignupPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/txtPassword"
+        app:layout_constraintTop_toBottomOf="@+id/txtSignupUsername"
+        tools:layout_editor_absoluteX="116dp" />
+
+    <EditText
+        android:id="@+id/txtSignupRetype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="@string/txtRetype"
+        app:layout_constraintTop_toBottomOf="@+id/txtSignupPassword"
+        tools:layout_editor_absoluteX="86dp" />
+
+    <EditText
+        android:id="@+id/txtSignupEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="@string/txtEmail"
+        app:layout_constraintTop_toBottomOf="@+id/txtSignupRetype"
+        tools:layout_editor_absoluteX="63dp" />
+
+    <EditText
+        android:id="@+id/txtSignupPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="@string/txtPhone"
+        app:layout_constraintTop_toBottomOf="@+id/txtSignupEmail"
+        tools:layout_editor_absoluteX="83dp" />
+
+    <Button
+        android:id="@+id/btnSignupSignMeUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btnSignMeUp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="158dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
