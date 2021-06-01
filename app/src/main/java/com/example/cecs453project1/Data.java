@@ -63,7 +63,7 @@ public class Data {
     private String validatePass(String pass, String rPass){
         // Checks if the password field is empty
         if(pass.equals("")){
-            return "Password cannot be emtpy. ";
+            return "Password cannot be empty. ";
         }
 
         // Checks if the password matches the retyped password
@@ -78,7 +78,7 @@ public class Data {
         // Commonly used email formats
         ArrayList<String> emailFormat = new ArrayList<>(Arrays.asList("@gmail.com", "@yahoo.com", "@student.csulb.edu", "@hotmail.com", "@aol.com"));
 
-        // Checks if email field is emtpy
+        // Checks if email field is empty
         if(email.equals("")) {
             return "Email cannot be empty. ";
         }
