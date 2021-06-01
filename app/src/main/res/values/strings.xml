@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">CECS453Project1</string>
+    <string name="txtUsername">Username</string>
+    <string name="txtPassword">Password</string>
+    <string name="txtRetype">Retype Password</string>
+    <string name="txtEmail">Email</string>
+    <string name="txtPhone">Phone</string>
+    <string name="txtWelcome">Welcome</string>
+    <string name="btnLogin">Login</string>
+    <string name="btnSignup">Signup</string>
+    <string name="btnSignMeUp">Sign Me Up!</string>
 </resources>
