@@ -4,55 +4,63 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.custom.SimpleCustomValidation;
 
 public class SignupActivity extends AppCompatActivity {
 
-    private EditText txtUser, txtPass, txtRePass, txtEmail, txtPhone;
-    private Button btnSignUp;
+    private AwesomeValidation awesomeValidation;
+
+    private Button btnSignup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        // Commonly used email formats
-        String emailFormat[] = {"@gmail.com", "@yahoo.com", "@student.csulb.edu", "@hotmail.com", "@aol.com"};
+        String regexUsername = "^.*[a-zA-Z0-9]+.*$";;
+        String regexPassword = "(?=.*[a-z])(?=.*[A-Z])(?=.*[\\d])(?=.*[~`!@#\\$%\\^&\\*\\(\\)\\-_\\+=\\{\\}\\[\\]\\|\\;:\"<>,./\\?]).{8,}";
+        String regexPhone = "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$";
 
-        // Stores all user inputs
-        txtUser = findViewById(R.id.txtSignupUsername);
-        txtPass = findViewById(R.id.txtSignupPassword);
-        txtRePass = findViewById(R.id.txtSignupRetype);
-        txtEmail = findViewById(R.id.txtSignupEmail);
-        txtPhone = findViewById(R.id.txtSignupPhone);
+        // Basic style is used because it is compatible with constraint layout
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        // Check if username field is empty
+        awesomeValidation.addValidation(this, R.id.et_registration_username, regexUsername, R.string.err_username);
+        // Check if username already exists in the database
+        awesomeValidation.addValidation(this, R.id.et_registration_username, new SimpleCustomValidation() {
+            @Override
+            public boolean compare(String s) {
+                String username = ((EditText)findViewById(R.id.et_registration_username)).getText().toString();
+                return !MainActivity.DATABASE.CheckUsername(username);
+            }
+        }, R.string.err_username);
+        // Check if password has uppercase, lowercase, digit, special character, and 8 characters long
+        awesomeValidation.addValidation(this, R.id.et_registration_password, regexPassword, R.string.err_password);
+        // Check if the re-entered password matches the password
+        awesomeValidation.addValidation(this, R.id.et_registration_password_confirmation, R.id.et_registration_password, R.string.err_password_confirmation);
+        // Check if the email is in a valid format
+        awesomeValidation.addValidation(this, R.id.et_registration_email, Patterns.EMAIL_ADDRESS, R.string.err_email);
+        // Check if the phone number matches a few commonly used phone formats
+        awesomeValidation.addValidation(this, R.id.et_registration_phone, regexPhone, R.string.err_phone);
 
-        btnSignUp = findViewById(R.id.btnSignupSignMeUp);
+        btnSignup = findViewById(R.id.btn_submit);
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Casts all variables into Strings
-                String user = txtUser.getText().toString();
-                String pass = txtPass.getText().toString();
-                String rPass = txtRePass.getText().toString();
-                String email = txtEmail.getText().toString();
-                String phone = txtPhone.getText().toString();
-
-                // There is an error message only when one of the credentials are inputted incorrectly
-                String errorMessage = MainActivity.database.validateInput(user, pass, rPass, email, phone);
-
-                // When all credentials are correct there is no error message
-                // And new credentials are added to the database
-                if(errorMessage.equals("")) {
-                    MainActivity.database.AddCredential(user, pass);
-                    Intent login_page = new Intent(getApplicationContext(), LoginActivity.class);
-                    startActivity(login_page);
-                } else {
-                    Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_LONG).show();
+                if(awesomeValidation.validate()) {
+                    String username = ((EditText)findViewById(R.id.et_registration_username)).getText().toString();
+                    String password = ((EditText)findViewById(R.id.et_registration_password)).getText().toString();
+                    // Add valid credentials to database
+                    MainActivity.DATABASE.AddCredential(username, password);
+                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(intent);
                 }
             }
         });

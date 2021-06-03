@@ -8,65 +8,65 @@
     tools:context=".SignupActivity">
 
     <EditText
-        android:id="@+id/txtSignupUsername"
+        android:id="@+id/et_registration_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:ems="10"
-        android:hint="@string/txtUsername"
+        android:hint="@string/username_hint"
         android:inputType="textPersonName"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="85dp" />
 
     <EditText
-        android:id="@+id/txtSignupPassword"
+        android:id="@+id/et_registration_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="@string/txtPassword"
-        app:layout_constraintTop_toBottomOf="@+id/txtSignupUsername"
+        android:hint="@string/password_hint"
+        app:layout_constraintTop_toBottomOf="@+id/et_registration_username"
         tools:layout_editor_absoluteX="116dp" />
 
     <EditText
-        android:id="@+id/txtSignupRetype"
+        android:id="@+id/et_registration_password_confirmation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="@string/txtRetype"
-        app:layout_constraintTop_toBottomOf="@+id/txtSignupPassword"
+        android:hint="@string/password_confirmation_hint"
+        app:layout_constraintTop_toBottomOf="@+id/et_registration_password"
         tools:layout_editor_absoluteX="86dp" />
 
     <EditText
-        android:id="@+id/txtSignupEmail"
+        android:id="@+id/et_registration_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:hint="@string/txtEmail"
-        app:layout_constraintTop_toBottomOf="@+id/txtSignupRetype"
+        android:hint="@string/email_hint"
+        app:layout_constraintTop_toBottomOf="@+id/et_registration_password_confirmation"
         tools:layout_editor_absoluteX="63dp" />
 
     <EditText
-        android:id="@+id/txtSignupPhone"
+        android:id="@+id/et_registration_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="phone"
-        android:hint="@string/txtPhone"
-        app:layout_constraintTop_toBottomOf="@+id/txtSignupEmail"
+        android:hint="@string/phone_hint"
+        app:layout_constraintTop_toBottomOf="@+id/et_registration_email"
         tools:layout_editor_absoluteX="83dp" />
 
     <Button
-        android:id="@+id/btnSignupSignMeUp"
+        android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btnSignMeUp"
+        android:text="@string/btn_submit"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="158dp" />
 

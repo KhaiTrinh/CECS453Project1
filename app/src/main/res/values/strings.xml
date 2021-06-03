@@ -1,12 +1,17 @@
 <resources>
     <string name="app_name">CECS453Project1</string>
-    <string name="txtUsername">Username</string>
-    <string name="txtPassword">Password</string>
-    <string name="txtRetype">Retype Password</string>
-    <string name="txtEmail">Email</string>
-    <string name="txtPhone">Phone</string>
-    <string name="txtWelcome">Welcome</string>
-    <string name="btnLogin">Login</string>
-    <string name="btnSignup">Signup</string>
-    <string name="btnSignMeUp">Sign Me Up!</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="password_confirmation_hint">Re-type Password</string>
+    <string name="email_hint">Email</string>
+    <string name="phone_hint">Phone</string>
+    <string name="title_welcome">Welcome</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_signup">Signup</string>
+    <string name="btn_submit">Sign Me Up!</string>
+    <string name="err_username">Username cannot be empty or already exists</string>
+    <string name="err_password">Password must contain uppercase, lowercase, numbers, special characters, and 8 character long</string>
+    <string name="err_password_confirmation">Please re-type the password correctly</string>
+    <string name="err_email">Invalid email address</string>
+    <string name="err_phone">Invalid phone number</string>
 </resources>

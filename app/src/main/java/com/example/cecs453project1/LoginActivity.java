@@ -10,9 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText txtLoginUsername, txtLoginPassword;
+    private EditText etUsername, etPassword;
     private Button btnLogin, btnSignup;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,23 +19,23 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Stores all inputted data
-        txtLoginUsername = findViewById(R.id.txtLoginUsername);
-        txtLoginPassword = findViewById(R.id.txtLoginPassword);
-        btnLogin = findViewById(R.id.btnLogin);
-        btnSignup = findViewById(R.id.btnSignup);
+        etUsername = findViewById(R.id.et_login_username);
+        etPassword = findViewById(R.id.et_login_password);
+        btnLogin = findViewById(R.id.btn_login);
+        btnSignup = findViewById(R.id.btn_signup);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Casts all data into Strings
-                String username = txtLoginUsername.getText().toString();
-                String password = txtLoginPassword.getText().toString();
+                String username = etUsername.getText().toString();
+                String password = etPassword.getText().toString();
 
                 // If the login credentials exists in the database, redirects to welcome page
-                if(MainActivity.database.CheckCredentials(username, password)) {
-                    Intent welcome_page = new Intent(getApplicationContext(), WelcomeActivity.class);
-                    welcome_page.putExtra("Username", username);
-                    startActivity(welcome_page);
+                if(MainActivity.DATABASE.CheckCredentials(username, password)) {
+                    Intent intent = new Intent(getApplicationContext(), WelcomeActivity.class);
+                    intent.putExtra("Username", username);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Incorrect login credentials.", Toast.LENGTH_LONG).show();
                 }
@@ -47,8 +46,8 @@ public class LoginActivity extends AppCompatActivity {
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent signup_page = new Intent(getApplicationContext(), SignupActivity.class);
-                startActivity(signup_page);
+                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+                startActivity(intent);
             }
         });
     }
