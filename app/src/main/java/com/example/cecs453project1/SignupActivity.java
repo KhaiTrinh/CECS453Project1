@@ -17,7 +17,6 @@ import android.widget.EditText;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
-import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.basgeekball.awesomevalidation.utility.custom.SimpleCustomValidation;
 
 public class SignupActivity extends AppCompatActivity {
