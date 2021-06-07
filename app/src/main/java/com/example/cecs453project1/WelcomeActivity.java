@@ -1,3 +1,9 @@
+/*
+ * CECS 453-01 Project 1
+ * Nikko Chan and Khai Trinh
+ * June 7, 2021
+ * */
+
 package com.example.cecs453project1;
 
 import androidx.appcompat.app.AppCompatActivity;

@@ -1,4 +1,14 @@
 package com.example.cecs453project1;
+/*
+ * CECS 453-01 Project 1
+ * Authors: Nikko Chan and Khai Trinh
+ * Due Date: June 7, 2021
+ * */
+/*
+ * CECS 453-01 Project 1
+ * Nikko Chan and Khai Trinh
+ * June 7, 2021
+ * */
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                     intent.putExtra("Username", username);
                     startActivity(intent);
                 } else {
+                    etPassword.getText().clear();
                     Toast.makeText(getApplicationContext(), "Incorrect login credentials.", Toast.LENGTH_LONG).show();
                 }
             }
