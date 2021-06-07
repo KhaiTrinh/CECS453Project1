@@ -3,8 +3,8 @@
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="password_confirmation_hint">Re-type Password</string>
-    <string name="email_hint">Email</string>
-    <string name="phone_hint">Phone</string>
+    <string name="email_hint">Email i.e example@gmail.com</string>
+    <string name="phone_hint">Phone i.e (714) 123-4567</string>
     <string name="title_welcome">Welcome</string>
     <string name="btn_login">Login</string>
     <string name="btn_signup">Signup</string>
@@ -12,6 +12,6 @@
     <string name="err_username">Username cannot be empty or already exists</string>
     <string name="err_password">Password must contain uppercase, lowercase, numbers, special characters, and 8 character long</string>
     <string name="err_password_confirmation">Please re-type the password correctly</string>
-    <string name="err_email">Invalid email address</string>
-    <string name="err_phone">Invalid phone number</string>
+    <string name="err_email">Invalid email address format</string>
+    <string name="err_phone">Invalid phone number format</string>
 </resources>
